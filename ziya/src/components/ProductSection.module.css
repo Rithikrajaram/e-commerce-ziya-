@@ -1,0 +1,113 @@
+.productSection {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+}
+
+.sectionTitle {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.productCard {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+}
+
+.saleBadge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #ff4d4d;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.productImage {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.productName {
+  font-size: 1.2rem;
+  margin: 15px 0;
+  color: #333;
+}
+
+.priceContainer {
+  margin: 10px 0;
+}
+
+.originalPrice {
+  text-decoration: line-through;
+  color: #999;
+  margin-right: 10px;
+}
+
+.discountedPrice {
+  font-size: 1.3rem;
+  color: #333;
+  font-weight: bold;
+}
+
+.addToCartButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.addToCartButton:hover {
+  background-color: #0056b3;
+}
+.productSection {
+  padding: 40px 20px;
+  background-color: #f9f9f9;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.carouselContainer {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carouselInner {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 400%; /* 4 products = 400% width */
+}
+
+.carouselItem {
+  flex: 0 0 25%; /* Each product takes 25% of the container width */
+  box-sizing: border-box;
+  padding: 0 10px;
+}
