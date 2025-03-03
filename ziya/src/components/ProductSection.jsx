@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import ProductCard from "./ProductCard";
 import styles from "./ProductSection.module.css";
-import image4 from "../assets/images/image4.jpg"; // Correct import
-import image5 from "../assets/images/image5.jpg";
-import image6 from "../assets/images/image6.jpeg"; // Fixed typo
-import image7 from "../assets/images/image7.jpeg";
+import image4 from "../assets/images/image4.jpg"; // Use image4
+import image5 from "../assets/images/image5.jpg"; // Use image5
+import image6 from "../assets/images/image6.jpeg"; // Use image6
+import image7 from "../assets/images/image7.jpeg"; // Use image7
 
-const ProductSection = () => {
+const ProductSection = ({ addToCart }) => {
   const products = [
     {
       image: image4, // Use image4
@@ -38,33 +38,13 @@ const ProductSection = () => {
     },
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  // Function to move to the next slide
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % products.length);
-  };
-
-  // Auto-scroll every 5 seconds
-  useEffect(() => {
-    const interval = setInterval(nextSlide, 5000); // Adjust the interval as needed
-    return () => clearInterval(interval);
-  }, [currentIndex]);
-
   return (
     <div className={styles.productSection}>
       <h2 className={styles.sectionTitle}>Featured Products</h2>
-      <div className={styles.carouselContainer}>
-        <div
-          className={styles.carouselInner}
-          style={{ transform: `translateX(-${currentIndex * 25}%)` }} // Move by 25% for each product
-        >
-          {products.map((product, index) => (
-            <div key={index} className={styles.carouselItem}>
-              <ProductCard {...product} />
-            </div>
-          ))}
-        </div>
+      <div className={styles.productGrid}>
+        {products.map((product, index) => (
+          <ProductCard key={index} {...product} addToCart={addToCart} />
+        ))}
       </div>
     </div>
   );

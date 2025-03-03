@@ -1,7 +1,26 @@
 import React from "react";
 import styles from "./ProductSection.module.css";
 
-const ProductCard = ({ image, name, originalPrice, discountedPrice, onSale }) => {
+const ProductCard = ({
+  image,
+  name,
+  originalPrice,
+  discountedPrice,
+  onSale,
+  addToCart, // Add this prop
+}) => {
+  // Function to handle "Add to Cart" button click
+  const handleAddToCart = () => {
+    const product = {
+      image,
+      name,
+      originalPrice,
+      discountedPrice,
+      onSale,
+    };
+    addToCart(product); // Call the addToCart function with the product details
+  };
+
   return (
     <div className={styles.productCard}>
       {onSale && <span className={styles.saleBadge}>Sale</span>}
@@ -13,7 +32,9 @@ const ProductCard = ({ image, name, originalPrice, discountedPrice, onSale }) =>
         )}
         <span className={styles.discountedPrice}>${discountedPrice}</span>
       </div>
-      <button className={styles.addToCartButton}>Add to Cart</button>
+      <button className={styles.addToCartButton} onClick={handleAddToCart}>
+        Add to Cart
+      </button>
     </div>
   );
 };

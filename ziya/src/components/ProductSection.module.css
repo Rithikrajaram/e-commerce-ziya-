@@ -8,6 +8,7 @@
   font-size: 2rem;
   margin-bottom: 30px;
   color: #333;
+  margin-left:300px;
 }
 
 .productGrid {
@@ -80,34 +81,4 @@
 
 .addToCartButton:hover {
   background-color: #0056b3;
-}
-.productSection {
-  padding: 40px 20px;
-  background-color: #f9f9f9;
-  position: relative;
-  overflow: hidden;
-  text-align: center;
-}
-
-.sectionTitle {
-  font-size: 2rem;
-  margin-bottom: 30px;
-  color: #333;
-}
-
-.carouselContainer {
-  width: 100%;
-  overflow: hidden;
-}
-
-.carouselInner {
-  display: flex;
-  transition: transform 0.5s ease;
-  width: 400%; /* 4 products = 400% width */
-}
-
-.carouselItem {
-  flex: 0 0 25%; /* Each product takes 25% of the container width */
-  box-sizing: border-box;
-  padding: 0 10px;
 }

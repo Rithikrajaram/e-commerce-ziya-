@@ -10,11 +10,10 @@
   z-index: 1000;
   transition: background-color 0.3s ease;
   height: 10%;
-  background-color: transparent; /* Ensure the navbar is transparent by default */
 }
 
 .navbar.scrolled {
-  background-color: black; /* Apply black background when scrolled */
+  background-color: black;
 }
 
 .navbarBrand {
@@ -57,5 +56,142 @@
 
 .iconLink:hover {
   color: white;
+}
 
+.cartButton {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.cartCount {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.8rem;
+}
+
+.cartDropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.cartItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.cartItemImage {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.cartItemDetails {
+  flex: 1;
+}
+
+.cartItemDetails p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+.cartDropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  padding: 10px;
+  z-index: 1000;
+}
+
+.cartItem {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.cartItemImage {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.cartItemDetails {
+  flex: 1;
+}
+
+.cartItemDetails p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.removeButton {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+.removeButton:hover {
+  background-color: #ff1a1a;
+}
+
+.cartTotal {
+  border-top: 1px solid #ccc;
+  padding-top: 10px;
+  margin-top: 10px;
+  text-align: right;
+}
+
+.cartTotal p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.cartActions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.viewCartButton,
+.checkoutButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.viewCartButton:hover,
+.checkoutButton:hover {
+  background-color: #0056b3;
 }
