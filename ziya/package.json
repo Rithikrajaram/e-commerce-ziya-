@@ -10,8 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mapbox/mapbox-gl-geocoder": "^5.0.3",
     "axios": "^1.8.1",
+    "dotenv": "^16.4.7",
     "mapbox-gl": "^3.10.0",
+    "prime-react": "^1.0.0",
+    "primeicons": "^7.0.0",
+    "primereact": "^10.9.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-geolocated": "^4.3.0",

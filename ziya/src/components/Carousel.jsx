@@ -13,22 +13,22 @@ const Carousel = () => {
         image: image1,
         title: "Connect with Ayurvedic Experts",
         description:
-          "Schedule a consultation with our experienced practitioners and receive personalized guidance on your path to holistic wellness. Get expert advice from the comfort of your home.",
-        buttonText: "Book Now",
+          "Schedule a consultation with our experienced practitioners and receive personalized guidance on your path to holistic wellness. Get expert advice from the comfort of your home."
+        
       },
       {
         image: image2,
         title: "Discover Authentic Ayurvedic Wellness",
         description:
-          "Explore our range of organic products and expert consultations designed to enhance your well-being naturally. Embrace the ancient wisdom of Ayurveda with ZIYA.",
-        buttonText: "Book Now",
+          "Explore our range of organic products and expert consultations designed to enhance your well-being naturally. Embrace the ancient wisdom of Ayurveda with ZIYA."
+        
       },
       {
         image: image3,
         title: "Find Your Perfect Ayurvedic Match",
         description:
-          "Take our personalized dosha quiz to discover the ideal products and practices tailored to your unique needs. Start your journey to balanced health today.",
-        buttonText: "Book Now",
+          "Take our personalized dosha quiz to discover the ideal products and practices tailored to your unique needs. Start your journey to balanced health today."
+        
       },
     ];
   

@@ -17,10 +17,7 @@ const ConnectWithExperts = () => {
           understanding of Ayurveda and enhance your wellness journey. Engage with
           knowledgeable practitioners today!
         </p>
-        <div className={styles.buttons}>
-          <button className={styles.consultButton}>Book a Consultation</button>
-          <button className={styles.joinButton}>Join the Community</button>
-        </div>
+        
 
         {/* Second Text Section */}
        

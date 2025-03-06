@@ -10,11 +10,10 @@
   z-index: 1000;
   transition: background-color 0.3s ease;
   height: 10%;
-}
-
-.navbar.scrolled {
   background-color: black;
 }
+
+
 
 .navbarBrand {
   font-size: 1.5rem;
@@ -194,4 +193,9 @@
 .viewCartButton:hover,
 .checkoutButton:hover {
   background-color: #0056b3;
+}
+/* Fix Navbar Overlap */
+.organic-page-content {
+  margin-top: 80px; /* Adjust according to your navbar height */
+  color: black; /* Change text color to black */
 }

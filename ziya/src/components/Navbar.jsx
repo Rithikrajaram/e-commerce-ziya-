@@ -1,26 +1,38 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom"; // Ensure useNavigate is imported
 import styles from "./Navbar.module.css";
 import { FaUser, FaShoppingCart } from "react-icons/fa";
 
-const Navbar = ({ cart, removeFromCart }) => {
+const Navbar = ({ cart, removeFromCart, isHome }) => {
   const [scrolled, setScrolled] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   // Calculate total amount
-  const totalAmount = cart.reduce((total, item) => total + item.discountedPrice * item.quantity, 0);
+  const totalAmount = cart.reduce(
+    (total, item) => total + item.discountedPrice * (item.quantity || 1),
+    0
+  );
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Close cart dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!event.target.closest(`.${styles.cartDropdown}`) && !event.target.closest(`.${styles.cartButton}`)) {
+        setIsCartOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
@@ -28,26 +40,24 @@ const Navbar = ({ cart, removeFromCart }) => {
       <div className={styles.navbarBrand}>ZIYA</div>
       <ul className={styles.navbarNav}>
         <li className={styles.navItem}><Link to="/">Home</Link></li>
-        <li className={styles.navItem}><a href="#">Organic Products</a></li>
+        <li className={styles.navItem}><Link to="/seasonal">Products</Link></li>
         <li className={styles.navItem}><a href="#">Wellness Kits</a></li>
-        <li className={styles.navItem}><a href="#">Spring Essentials</a></li>
-        <li className={styles.navItem}><a href="#">Community Forum</a></li>
-        <li className={styles.navItem}>
-  <Link to="/location-centers">Location Centers</Link>
-</li>
-
-
+        <li className={styles.navItem}><a href="#">Location Assistant</a></li>
+        <li className={styles.navItem}><a href="#">AI Analyzer</a></li>
       </ul>
+      
       <div className={styles.navbarIcons}>
-        <a href="#" className={styles.iconLink}><FaUser /></a>
-        <button
-          className={styles.cartButton}
-          onClick={() => setIsCartOpen(!isCartOpen)}
-        >
+        {/* User Icon - Navigate to Login */}
+        <span className={styles.iconLink} onClick={() => navigate("/login")} style={{ cursor: "pointer" }}>
+          <FaUser />
+        </span>
+
+        {/* Cart Icon */}
+        <button className={styles.cartButton} onClick={() => setIsCartOpen(!isCartOpen)}>
           <FaShoppingCart />
           {cart.length > 0 && (
             <span className={styles.cartCount}>
-              {cart.reduce((total, item) => total + item.quantity, 0)}
+              {cart.reduce((total, item) => total + (item.quantity || 1), 0)}
             </span>
           )}
         </button>
@@ -65,23 +75,14 @@ const Navbar = ({ cart, removeFromCart }) => {
                   <img src={item.image} alt={item.name} className={styles.cartItemImage} />
                   <div className={styles.cartItemDetails}>
                     <p>{item.name}</p>
-                    <p>${item.discountedPrice} x {item.quantity}</p>
-                    <button
-                      className={styles.removeButton}
-                      onClick={() => removeFromCart(index)}
-                    >
-                      Remove
-                    </button>
+                    <p>${item.discountedPrice} x {item.quantity || 1}</p>
+                    <button className={styles.removeButton} onClick={() => removeFromCart(index)}>Remove</button>
                   </div>
                 </div>
               ))}
-              <div className={styles.cartTotal}>
-                <p>Total: ${totalAmount.toFixed(2)}</p>
-              </div>
+              <div className={styles.cartTotal}><p>Total: ${totalAmount.toFixed(2)}</p></div>
               <div className={styles.cartActions}>
-                <Link to="/cart" className={styles.viewCartButton}>
-                  View Cart
-                </Link>
+                <button className={styles.viewCartButton} onClick={() => { setIsCartOpen(false); navigate("/cart"); }}>View Cart</button>
                 <button className={styles.checkoutButton}>Checkout</button>
               </div>
             </>
